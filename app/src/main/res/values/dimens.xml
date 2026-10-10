@@ -1,9 +1,13 @@
 <resources>
     <integer name="grid_columns">5</integer>
     <integer name="dock_columns">5</integer>
-    <dimen name="icon_size">52dp</dimen>
-    <dimen name="icon_padding">6dp</dimen>
-    <dimen name="cell_gap">8dp</dimen>
-    <dimen name="dock_height">84dp</dimen>
-    <dimen name="drawer_icon_size">52dp</dimen>
+    <dimen name="icon_size">56dp</dimen>
+    <dimen name="icon_padding">8dp</dimen>
+    <dimen name="cell_gap">12dp</dimen>
+    <dimen name="dock_height">92dp</dimen>
+    <dimen name="drawer_icon_size">56dp</dimen>
+    <dimen name="icon_corner_radius">14dp</dimen>
+    <dimen name="card_corner_radius">22dp</dimen>
+    <dimen name="search_corner_radius">28dp</dimen>
+    <dimen name="home_grid_padding_top">120dp</dimen>
 </resources>

@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Item shown inside hidden-apps grid; same as item_app but with checkbox overlay -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:padding="6dp">
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp">
 
     <FrameLayout
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size">
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/appIcon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
-            android:padding="@dimen/icon_padding"
+            android:padding="8dp"
+            app:shapeAppearanceOverlay="@style/Widget.App.IconFrame"
+            app:strokeColor="#1AFFFFFF"
+            app:strokeWidth="0.5dp"
             android:contentDescription="@null"
             tools:src="@drawable/ic_launcher_foreground" />
 
-        <!-- dim overlay when hidden -->
         <View
             android:id="@+id/hideOverlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#88000000"
+            android:background="#A0000000"
             android:visibility="gone" />
 
-        <!-- small badge indicator -->
         <ImageView
             android:id="@+id/hideBadge"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_gravity="end|top"
             android:src="@android:drawable/ic_menu_view"
+            android:tint="@color/accent"
             android:visibility="gone"
             tools:ignore="ContentDescription" />
     </FrameLayout>
@@ -44,8 +49,11 @@
         style="@style/TextAppearance.App.Label.Secondary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="6dp"
         android:gravity="center"
+        android:shadowColor="#FF000000"
+        android:shadowDy="1"
+        android:shadowRadius="3"
         tools:text="Chrome" />
 
 </LinearLayout>

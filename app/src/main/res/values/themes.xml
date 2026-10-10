@@ -1,35 +1,42 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base theme (dark, glassy) -->
+    <!-- Base premium dark theme -->
     <style name="Theme.GhostLauncher" parent="Theme.Material3.Dark.NoActionBar">
-        <item name="android:windowBackground">@color/bg_launcher</item>
+        <item name="android:windowBackground">@drawable/bg_home_gradient</item>
         <item name="android:windowShowWallpaper">true</item>
         <item name="android:colorPrimary">@color/accent</item>
+        <item name="android:colorAccent">@color/accent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <!-- Material3 attribute overrides -->
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">@color/glass_card_hover</item>
     </style>
 
-    <!-- Drawer theme: dim wallpaper -->
+    <!-- Drawer: opaque premium -->
     <style name="Theme.GhostLauncher.Drawer" parent="Theme.GhostLauncher">
-        <item name="android:windowBackground">@color/bg_drawer</item>
+        <item name="android:windowBackground">@drawable/bg_drawer_gradient</item>
         <item name="android:windowShowWallpaper">false</item>
         <item name="android:windowIsTranslucent">false</item>
     </style>
 
-    <!-- Dialog theme for hidden apps popup -->
+    <!-- Dialog theme for secret popup -->
     <style name="Theme.GhostLauncher.Dialog" parent="Theme.Material3.Dark.Dialog">
-        <item name="android:windowBackground">@drawable/bg_popup</item>
+        <item name="android:windowBackground">@drawable/bg_popup_card</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowFullscreen">false</item>
-        <item name="android:windowMinWidthMajor">85%</item>
-        <item name="android:windowMinWidthMinor">85%</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <!-- Transparent activity (for shortcut install) -->
+    <!-- Transparent for shortcut install -->
     <style name="Theme.GhostLauncher.Transparent" parent="Theme.GhostLauncher">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
@@ -37,11 +44,13 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <!-- Typography -->
     <style name="TextAppearance.App.Label" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textColor">@color/text_primary</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">11.5sp</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
+        <item name="android:fontFeatureSettings">"tnum"</item>
     </style>
 
     <style name="TextAppearance.App.Label.Secondary" parent="TextAppearance.App.Label">
@@ -50,5 +59,47 @@
 
     <style name="TextAppearance.App.Title" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
+
+    <!-- Big clock on home -->
+    <style name="TextAppearance.App.Clock" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">64sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:fontFeatureSettings">"tnum"</item>
+    </style>
+
+    <style name="TextAppearance.App.ClockDate" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Premium squircle icon frame (Material shapeable image view style) -->
+    <style name="Widget.App.IconFrame" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">22%</item>
+    </style>
+
+    <!-- Big option buttons in chooser -->
+    <style name="Widget.App.ChooserButton" parent="Widget.Material3.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:paddingBottom">18dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="backgroundTint">@color/glass_card</item>
+        <item name="rippleColor">@color/ripple_accent</item>
+        <item name="cornerRadius">22dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
 </resources>

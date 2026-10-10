@@ -6,59 +6,91 @@
     android:focusable="true"
     android:descendantFocusability="afterDescendants">
 
-    <!-- App grid: dynamically becomes RecyclerView of all visible apps + folders -->
+    <!-- Top zone: clock + date + search pill -->
+    <LinearLayout
+        android:id="@+id/topZone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="44dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/clock"
+            style="@style/TextAppearance.App.Clock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="12:34" />
+
+        <TextView
+            android:id="@+id/clockDate"
+            style="@style/TextAppearance.App.ClockDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="2dp"
+            tools:text="Sabtu, 10 Oktober" />
+
+        <!-- Search pill -->
+        <LinearLayout
+            android:id="@+id/searchPill"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/bg_search"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:elevation="4dp"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/ic_menu_search"
+                android:contentDescription="@null"
+                android:tint="@color/text_secondary" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/hint_search_apps"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- App grid -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingTop="48dp"
-        android:paddingBottom="120dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
+        android:paddingTop="240dp"
+        android:paddingBottom="140dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:overScrollMode="never"
         android:scrollbars="none" />
 
-    <!-- Search hint pill at top -->
-    <LinearLayout
-        android:id="@+id/searchPill"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/bg_search"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
-        android:elevation="6dp"
-        android:visibility="gone"
-        tools:visibility="visible">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hint_search_apps"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <!-- Dockbar: 5 slots -->
+    <!-- Glass dock -->
     <LinearLayout
         android:id="@+id/dockBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dock_height"
         android:layout_gravity="bottom"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/bg_dock"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:elevation="10dp">
-        <!-- 5 dock slots added programmatically for memory efficiency -->
-    </LinearLayout>
+        android:elevation="14dp" />
 
 </FrameLayout>

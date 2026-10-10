@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- One app cell in grid (home + drawer) -->
+<!-- App cell: squircle icon + label -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:padding="6dp">
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/appIcon"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:scaleType="fitCenter"
-        android:padding="@dimen/icon_padding"
+        android:padding="8dp"
         android:background="@drawable/ripple_app_icon"
+        app:shapeAppearanceOverlay="@style/Widget.App.IconFrame"
+        app:strokeColor="#1AFFFFFF"
+        app:strokeWidth="0.5dp"
         android:contentDescription="@null"
         tools:src="@drawable/ic_launcher_foreground" />
 
@@ -23,8 +30,12 @@
         style="@style/TextAppearance.App.Label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="6dp"
         android:gravity="center"
+        android:shadowColor="#FF000000"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="3"
         tools:text="Chrome" />
 
 </LinearLayout>

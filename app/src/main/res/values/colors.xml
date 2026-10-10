@@ -1,22 +1,46 @@
 <resources>
-    <!-- Brand palette: dark, glassy, premium -->
-    <color name="bg_launcher">#101014</color>
-    <color name="bg_drawer">#0F0F12</color>
-    <color name="bg_popup">#1A1A20</color>
-    <color name="bg_dock">#1E1E26</color>
-    <color name="bg_folder">#2A2A33</color>
-    <color name="bg_card">#1F1F27</color>
-    <color name="bg_card_pressed">#2D2D38</color>
+    <!-- ===== Premium dark palette (glassmorphism + amethyst accent) ===== -->
 
-    <color name="text_primary">#F5F5F7</color>
-    <color name="text_secondary">#9CA0AC</color>
-    <color name="text_tertiary">#5A5E68</color>
+    <!-- Surfaces -->
+    <color name="bg_launcher">#0A0A0F</color>
+    <color name="bg_launcher_top_grad">#181826</color>
+    <color name="bg_drawer">#0C0C12</color>
+    <color name="bg_popup">#16161E</color>
+    <color name="bg_popup_alt">#1B1B25</color>
 
+    <!-- Glass panels -->
+    <color name="glass_dock">#FF1A1A22</color>
+    <color name="glass_overlay">#99141420</color>
+    <color name="glass_search">#221F2D</color>
+    <color name="glass_card">#1C1C26</color>
+    <color name="glass_card_hover">#252533</color>
+    <color name="glass_card_pressed">#2F2F3F</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#A8A8B8</color>
+    <color name="text_tertiary">#5A5A6A</color>
+
+    <!-- Accents -->
     <color name="accent">#7C5CFF</color>
+    <color name="accent_press">#A589FF</color>
     <color name="accent_dim">#4A3A8C</color>
-    <color name="accent_press">#B3A1FF</color>
+    <color name="accent_glow_start">#8C6FFF</color>
+    <color name="accent_glow_end">#4A3A8C</color>
 
-    <color name="ripple_default">#33FFFFFF</color>
+    <!-- Semantic -->
+    <color name="danger">#FF5C6C</color>
+    <color name="success">#3DDC84</color>
+    <color name="warning">#FFB347</color>
+
+    <!-- Squircle icon frame (subtle backdrop tint) -->
+    <color name="icon_backdrop">#221F2D</color>
+    <color name="icon_backdrop_hover">#2F2D3D</color>
+
+    <!-- Dividers -->
     <color name="divider">#1AFFFFFF</color>
-    <color name="search_bg">#1F1F27</color>
+
+    <!-- Ripples -->
+    <color name="ripple_default">#22FFFFFF</color>
+    <color name="ripple_accent">#557C5CFF</color>
 </resources>

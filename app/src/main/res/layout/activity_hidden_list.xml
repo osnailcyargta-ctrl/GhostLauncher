@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Activity shown when user picks "Open Hidden Apps" from secret chooser.
+     Lists ONLY hidden apps. Tapping launches them. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_drawer_gradient">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="6dp"
+        android:text="@string/hidden_list_title"
+        style="@style/TextAppearance.App.Title"
+        android:textSize="26sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="14dp"
+        android:text="@string/hidden_list_subtitle"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hiddenListGrid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:paddingBottom="24dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/item_app" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCloseList"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/hidden_close"
+        android:textColor="@color/text_primary"
+        android:backgroundTint="@color/glass_card"
+        app:cornerRadius="20dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/Widget.Material3.Button" />
+
+</LinearLayout>

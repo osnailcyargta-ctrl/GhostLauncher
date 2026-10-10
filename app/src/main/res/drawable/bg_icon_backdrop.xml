@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Squircle backdrop behind app icons (very subtle tint) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/icon_backdrop" />
+    <corners android:radius="@dimen/icon_corner_radius" />
+</shape>

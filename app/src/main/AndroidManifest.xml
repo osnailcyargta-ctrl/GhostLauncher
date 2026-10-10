@@ -67,6 +67,14 @@
             android:noHistory="false"
             android:configChanges="orientation|screenSize|keyboardHidden|keyboard|navigation" />
 
+        <!-- Hidden apps list (shows ONLY hidden apps, can launch them) -->
+        <activity
+            android:name=".ui.HiddenAppsListActivity"
+            android:exported="false"
+            android:theme="@style/Theme.GhostLauncher.Drawer"
+            android:excludeFromRecents="true"
+            android:configChanges="orientation|screenSize|keyboardHidden|keyboard|navigation" />
+
         <!-- Settings -->
         <activity
             android:name=".ui.SettingsActivity"

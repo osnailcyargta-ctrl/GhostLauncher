@@ -8,12 +8,27 @@
     <string name="empty_dock">Kosong</string>
     <string name="folder_unnamed">Folder</string>
 
-    <!-- Hidden secret -->
+    <!-- Secret chooser popup (Ctrl+Alt+M) -->
+    <string name="secret_title">Mode Bayangan</string>
+    <string name="secret_subtitle">Pilih salah satu aksi di bawah. Tidak terdokumentasi.</string>
+    <string name="secret_option_hide">Sembunyikan Aplikasi</string>
+    <string name="secret_option_hide_desc">Kelola daftar app yang ingin di-hide dari layar utama</string>
+    <string name="secret_option_open">Buka App Tersembunyi</string>
+    <string name="secret_option_open_desc">Akses dan jalankan app yang sudah di-hide</string>
+    <string name="secret_option_open_desc_empty">Belum ada app yang disembunyikan. Buka "Sembunyikan Aplikasi" dulu.</string>
+    <string name="secret_hint_dismiss">Tekan Ctrl+Alt+M lagi untuk menutup</string>
+
+    <!-- Hidden apps manager -->
     <string name="hidden_title">Sembunyikan Aplikasi</string>
     <string name="hidden_subtitle">Tandai aplikasi yang ingin disembunyikan dari layar utama dan daftar aplikasi. Tekan Ctrl+Alt+M lagi untuk menutup.</string>
     <string name="hidden_search_hint">Filter aplikasi…</string>
     <string name="hidden_close">Tutup</string>
     <string name="hidden_done">Selesai</string>
+
+    <!-- Hidden apps launcher -->
+    <string name="hidden_list_title">App Tersembunyi</string>
+    <string name="hidden_list_subtitle">Tidak muncul di layar utama / drawer. Tap untuk jalankan.</string>
+    <string name="hidden_list_empty">Belum ada app yang disembunyikan.</string>
 
     <!-- Long-press menu -->
     <string name="action_hide">Sembunyikan</string>
@@ -31,7 +46,7 @@
     <string name="settings_show_labels">Tampilkan label aplikasi</string>
     <string name="settings_wallpaper">Ganti wallpaper</string>
     <string name="settings_about">Tentang</string>
-    <string name="settings_about_summary">Ghost Launcher v1.0.0</string>
+    <string name="settings_about_summary">Ghost Launcher v1.2.0</string>
     <string name="settings_reset">Reset launcher</string>
     <string name="settings_reset_summary">Hapus semua pin, folder, dan aplikasi tersembunyi</string>
 
@@ -39,4 +54,7 @@
     <string name="folder_rename_hint">Nama folder</string>
     <string name="cancel">Batal</string>
     <string name="ok">OK</string>
+
+    <!-- Dock full -->
+    <string name="dock_full">Dock penuh (5 slot)</string>
 </resources>

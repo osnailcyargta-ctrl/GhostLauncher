@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- One dock slot: icon + label hidden by default -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:layout_marginStart="2dp"
-    android:layout_marginEnd="2dp">
+    android:layout_marginStart="3dp"
+    android:layout_marginEnd="3dp">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/dockIcon"
-        android:layout_width="@dimen/icon_size"
-        android:layout_height="@dimen/icon_size"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:scaleType="fitCenter"
-        android:padding="@dimen/icon_padding"
+        android:padding="10dp"
         android:background="@drawable/ripple_app_icon"
+        app:shapeAppearanceOverlay="@style/Widget.App.IconFrame"
+        app:strokeColor="#1AFFFFFF"
+        app:strokeWidth="0.5dp"
         android:contentDescription="@string/empty_dock"
         tools:src="@drawable/ic_launcher_foreground" />
 
     <ImageView
         android:id="@+id/dockRemoveBtn"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_gravity="end|top"
         android:src="@android:drawable/ic_menu_close_clear_cancel"
         android:background="@drawable/bg_remove_btn"

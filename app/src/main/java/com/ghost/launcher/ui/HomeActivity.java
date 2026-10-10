@@ -2,11 +2,16 @@ package com.ghost.launcher.ui;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
+import android.text.format.DateFormat;
 import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -15,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -29,6 +35,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.shape.ShapeAppearanceModel;
+
 import com.ghost.launcher.R;
 import com.ghost.launcher.adapter.AppGridAdapter;
 import com.ghost.launcher.adapter.DockAdapter;
@@ -39,9 +48,12 @@ import com.ghost.launcher.util.AppLoader;
 import com.ghost.launcher.util.IntentUtil;
 import com.ghost.launcher.util.WebShortcutHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
 
@@ -61,14 +73,22 @@ public final class HomeActivity extends AppCompatActivity
         implements AppGridAdapter.Callback, DockAdapter.Callback {
 
     private static final int REQ_HIDDEN = 0xA1;
+    private static final int REQ_HIDDEN_LIST = 0xA2;
 
     private RecyclerView homeGrid;
     private AppGridAdapter gridAdapter;
     private DockAdapter dockAdapter;
     private RecyclerView dockRecycler;
     private View searchPill;
+    private TextView clockView;
+    private TextView dateView;
 
     private PrefsManager prefs;
+    private final Handler clockHandler = new Handler(Looper.getMainLooper());
+    private final Runnable clockTick = new Runnable() {
+        @Override public void run() { updateClock(); clockHandler.postDelayed(this, 1000L); }
+    };
+    private Dialog secretDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +96,10 @@ public final class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
 
         prefs = PrefsManager.get(this);
+
+        clockView = findViewById(R.id.clock);
+        dateView = findViewById(R.id.clockDate);
+        updateClock();
 
         homeGrid = findViewById(R.id.homeGrid);
         searchPill = findViewById(R.id.searchPill);
@@ -132,6 +156,7 @@ public final class HomeActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
+        clockHandler.post(clockTick);
         // Reload apps on resume if cache invalidated
         if (AppLoader.get(this).getCacheGeneration() == 0
                 || gridAdapter.current().isEmpty()) {
@@ -140,6 +165,16 @@ public final class HomeActivity extends AppCompatActivity
             // quick path: only filter out hidden apps
             refreshHomeList();
             bindDock();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        clockHandler.removeCallbacks(clockTick);
+        if (secretDialog != null && secretDialog.isShowing()) {
+            secretDialog.dismiss();
+            secretDialog = null;
         }
     }
 
@@ -374,14 +409,65 @@ public final class HomeActivity extends AppCompatActivity
     }
 
     private void launchHiddenAppsPopup() {
-        Intent i = new Intent(this, HiddenAppsActivity.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        try {
-            startActivity(i);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        } catch (Throwable t) {
-            Toast.makeText(this, t.getMessage(), Toast.LENGTH_SHORT).show();
+        if (secretDialog != null && secretDialog.isShowing()) {
+            secretDialog.dismiss();
+            secretDialog = null;
+            return;
         }
+        // Build the 2-option chooser dialog
+        View root = LayoutInflater.from(this).inflate(R.layout.dialog_secret_chooser, null);
+        AlertDialog.Builder b = new AlertDialog.Builder(this, R.style.Theme_GhostLauncher_Dialog);
+        b.setView(root);
+        secretDialog = b.create();
+        secretDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        secretDialog.getWindow().setDimAmount(0.55f);
+        secretDialog.setCanceledOnTouchOutside(true);
+
+        root.findViewById(R.id.btnHideApp).setOnClickListener(v -> {
+            secretDialog.dismiss();
+            secretDialog = null;
+            Intent i = new Intent(this, HiddenAppsActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            try {
+                startActivityForResult(i, REQ_HIDDEN);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            } catch (Throwable t) {
+                Toast.makeText(this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Subtitle dynamically: if 0 hidden apps, show note
+        TextView openDesc = root.findViewById(R.id.openHiddenDesc);
+        int hiddenCount = prefs.getHiddenKeys().size();
+        if (hiddenCount == 0) {
+            openDesc.setText(R.string.secret_option_open_desc_empty);
+        } else {
+            String fmt = getString(R.string.secret_option_open_desc);
+            openDesc.setText(fmt + " (" + hiddenCount + " app)");
+        }
+        root.findViewById(R.id.btnOpenHidden).setOnClickListener(v -> {
+            secretDialog.dismiss();
+            secretDialog = null;
+            Intent i = new Intent(this, HiddenAppsListActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            try {
+                startActivityForResult(i, REQ_HIDDEN_LIST);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            } catch (Throwable t) {
+                Toast.makeText(this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        secretDialog.show();
+    }
+
+    private void updateClock() {
+        try {
+            java.text.DateFormat time = new SimpleDateFormat("HH:mm", Locale.getDefault());
+            java.text.DateFormat date = new SimpleDateFormat("EEEE, d MMMM", Locale.getDefault());
+            clockView.setText(time.format(new Date()));
+            dateView.setText(date.format(new Date()));
+        } catch (Throwable t) { /* */ }
     }
 
     // ---------- helpers ----------

@@ -25,7 +25,10 @@
         android:theme="@style/Theme.GhostLauncher"
         tools:targetApi="34">
 
-        <!-- Main launcher activity (HOME screen) -->
+        <!-- Main launcher activity (HOME screen).
+             Two intent-filters:
+             (1) HOME / DEFAULT  → can be set as default launcher
+             (2) MAIN / LAUNCHER → also shows up in app drawer like a normal app -->
         <activity
             android:name=".ui.HomeActivity"
             android:exported="true"
@@ -40,6 +43,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.MONKEY" />
                 <category android:name="android.intent.category.LAUNCHER_APP" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 

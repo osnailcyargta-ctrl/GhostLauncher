@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Folder cell -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="6dp">
+
+    <FrameLayout
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size">
+        <ImageView
+            android:id="@+id/folderIcon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/icon_padding"
+            android:background="@drawable/bg_folder"
+            android:contentDescription="@null" />
+        <!-- Folder preview icon overlay (drawn programmatically) -->
+        <ImageView
+            android:id="@+id/folderPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:padding="6dp"
+            android:contentDescription="@null" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/folderLabel"
+        style="@style/TextAppearance.App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        tools:text="Sosial" />
+
+</LinearLayout>

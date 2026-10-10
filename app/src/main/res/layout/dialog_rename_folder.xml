@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/action_rename_folder"
+        style="@style/TextAppearance.App.Title" />
+
+    <EditText
+        android:id="@+id/folderNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="@string/folder_rename_hint"
+        android:textColorHint="@color/text_secondary"
+        android:textColor="@color/text_primary"
+        android:inputType="text|textNoSuggestions|textCapSentences"
+        android:singleLine="true"
+        android:imeOptions="actionDone" />
+</LinearLayout>

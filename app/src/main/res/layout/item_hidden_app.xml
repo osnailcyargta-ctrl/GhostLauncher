@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Item shown inside hidden-apps grid; same as item_app but with checkbox overlay -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="6dp">
+
+    <FrameLayout
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size">
+        <ImageView
+            android:id="@+id/appIcon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:padding="@dimen/icon_padding"
+            android:contentDescription="@null"
+            tools:src="@drawable/ic_launcher_foreground" />
+
+        <!-- dim overlay when hidden -->
+        <View
+            android:id="@+id/hideOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#88000000"
+            android:visibility="gone" />
+
+        <!-- small badge indicator -->
+        <ImageView
+            android:id="@+id/hideBadge"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="end|top"
+            android:src="@android:drawable/ic_menu_view"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/appLabel"
+        style="@style/TextAppearance.App.Label.Secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        tools:text="Chrome" />
+
+</LinearLayout>

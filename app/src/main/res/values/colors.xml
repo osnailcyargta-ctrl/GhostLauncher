@@ -1,0 +1,22 @@
+<resources>
+    <!-- Brand palette: dark, glassy, premium -->
+    <color name="bg_launcher">#101014</color>
+    <color name="bg_drawer">#0F0F12</color>
+    <color name="bg_popup">#1A1A20</color>
+    <color name="bg_dock">#1E1E26</color>
+    <color name="bg_folder">#2A2A33</color>
+    <color name="bg_card">#1F1F27</color>
+    <color name="bg_card_pressed">#2D2D38</color>
+
+    <color name="text_primary">#F5F5F7</color>
+    <color name="text_secondary">#9CA0AC</color>
+    <color name="text_tertiary">#5A5E68</color>
+
+    <color name="accent">#7C5CFF</color>
+    <color name="accent_dim">#4A3A8C</color>
+    <color name="accent_press">#B3A1FF</color>
+
+    <color name="ripple_default">#33FFFFFF</color>
+    <color name="divider">#1AFFFFFF</color>
+    <color name="search_bg">#1F1F27</color>
+</resources>

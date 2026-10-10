@@ -1,0 +1,3 @@
+-keep class com.ghost.launcher.** { *; }
+-dontwarn android.app.**
+-keep class androidx.recyclerview.** { *; }

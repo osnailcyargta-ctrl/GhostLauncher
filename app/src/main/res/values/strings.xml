@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Ghost</string>
+    <string name="settings_title">Pengaturan Ghost</string>
+    <string name="install_shortcut_label">Pasang Pintasan Web</string>
+
+    <!-- Home -->
+    <string name="hint_search_apps">Cari aplikasi…</string>
+    <string name="empty_dock">Kosong</string>
+    <string name="folder_unnamed">Folder</string>
+
+    <!-- Hidden secret -->
+    <string name="hidden_title">Sembunyikan Aplikasi</string>
+    <string name="hidden_subtitle">Tandai aplikasi yang ingin disembunyikan dari layar utama dan daftar aplikasi. Tekan Ctrl+Alt+M lagi untuk menutup.</string>
+    <string name="hidden_search_hint">Filter aplikasi…</string>
+    <string name="hidden_close">Tutup</string>
+    <string name="hidden_done">Selesai</string>
+
+    <!-- Long-press menu -->
+    <string name="action_hide">Sembunyikan</string>
+    <string name="action_unhide">Tampilkan</string>
+    <string name="action_pin_dock">Pin ke Dock</string>
+    <string name="action_unpin_dock">Lepas dari Dock</string>
+    <string name="action_uninstall">Uninstall</string>
+    <string name="action_app_info">Info Aplikasi</string>
+    <string name="action_remove_folder">Bubarkan Folder</string>
+    <string name="action_rename_folder">Ganti Nama Folder</string>
+
+    <!-- Settings -->
+    <string name="settings_appearance">Tampilan</string>
+    <string name="settings_grid">Jumlah kolom</string>
+    <string name="settings_show_labels">Tampilkan label aplikasi</string>
+    <string name="settings_wallpaper">Ganti wallpaper</string>
+    <string name="settings_about">Tentang</string>
+    <string name="settings_about_summary">Ghost Launcher v1.0.0</string>
+    <string name="settings_reset">Reset launcher</string>
+    <string name="settings_reset_summary">Hapus semua pin, folder, dan aplikasi tersembunyi</string>
+
+    <!-- Folder dialog -->
+    <string name="folder_rename_hint">Nama folder</string>
+    <string name="cancel">Batal</string>
+    <string name="ok">OK</string>
+</resources>

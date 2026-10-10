@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base theme (dark, glassy) -->
+    <style name="Theme.GhostLauncher" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@color/bg_launcher</item>
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:colorPrimary">@color/accent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <!-- Drawer theme: dim wallpaper -->
+    <style name="Theme.GhostLauncher.Drawer" parent="Theme.GhostLauncher">
+        <item name="android:windowBackground">@color/bg_drawer</item>
+        <item name="android:windowShowWallpaper">false</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <!-- Dialog theme for hidden apps popup -->
+    <style name="Theme.GhostLauncher.Dialog" parent="Theme.Material3.Dark.Dialog">
+        <item name="android:windowBackground">@drawable/bg_popup</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+    </style>
+
+    <!-- Transparent activity (for shortcut install) -->
+    <style name="Theme.GhostLauncher.Transparent" parent="Theme.GhostLauncher">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="TextAppearance.App.Label" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TextAppearance.App.Label.Secondary" parent="TextAppearance.App.Label">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="TextAppearance.App.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+</resources>

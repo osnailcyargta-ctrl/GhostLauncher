@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_drawer">
+
+    <!-- Search bar -->
+    <EditText
+        android:id="@+id/drawerSearch"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="8dp"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:hint="@string/hint_search_apps"
+        android:textColorHint="@color/text_secondary"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp"
+        android:inputType="text|textNoSuggestions|textCapWords"
+        android:imeOptions="actionSearch"
+        android:singleLine="true"
+        android:background="@drawable/bg_search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/drawerGrid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/item_app" />
+
+</LinearLayout>

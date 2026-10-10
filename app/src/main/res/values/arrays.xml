@@ -1,0 +1,12 @@
+<resources>
+    <string-array name="grid_columns_entries">
+        <item>4 kolom</item>
+        <item>5 kolom</item>
+        <item>6 kolom</item>
+    </string-array>
+    <string-array name="grid_columns_values">
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+</resources>
